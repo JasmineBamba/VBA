@@ -7,7 +7,7 @@ Dim ws As Worksheet
 Dim ticker As String
 Dim yearlyChange As Double
 Dim percentageChange As Double
-Dim stockVolume As Variant
+Dim stockVolume As Double
 
 Dim openingPrice As Double
 Dim closingPrice As Double
@@ -27,6 +27,13 @@ Dim greatestStockVolumeValue As Double
 'Loop through worksheets
 For Each ws In ThisWorkbook.Worksheets
 
+greatestIncreaseValue = 0
+greatestDecreaseValue = 0
+greatestStockVolumeValue = 0
+
+greatestIncreaseTicker = ""
+greatestDecreaseTicker = ""
+greatestStockVolumeTicker = ""
 
 'Worksheet where the data is stored
 'Set ws = ThisWorkbook.Worksheets("A")
