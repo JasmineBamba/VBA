@@ -150,7 +150,7 @@ ws.Columns("O:Q").AutoFit
                ws.Cells(4, 17).Value = greatestStockVolumeValue
              
                
-     Next ws
+    Next ws
 
 End Sub
 
