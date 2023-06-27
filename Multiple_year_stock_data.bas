@@ -4,6 +4,7 @@ Sub stockAnalysis()
 'Declaring variables
 Dim ws As Worksheet
 
+Dim lastRow As Long
 Dim ticker As String
 Dim yearlyChange As Double
 Dim percentageChange As Double
@@ -35,6 +36,7 @@ greatestIncreaseTicker = ""
 greatestDecreaseTicker = ""
 greatestStockVolumeTicker = ""
 
+
 'Worksheet where the data is stored
 'Set ws = ThisWorkbook.Worksheets("A")
 
@@ -45,7 +47,7 @@ lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
 
 'Assigning value to variable for output data that will start from row 2
 output = 2
-
+'output = ws.Cells(ws.Rows.Count, 14).End(xlUp).Row + 1
 
 'Headers for output
 ws.Cells(1, 9).Value = "Ticker"
@@ -58,11 +60,12 @@ ws.Cells(2, 15).Value = "Greatest % Increase"
 ws.Cells(3, 15).Value = "Greatest % Decrease"
 ws.Cells(4, 15).Value = "Greatest Total Volume"
 
+' ws.Range("A2:A" & lastRow) = ticker(0)
 
 'Auto-fit the width of columns to its content
 ws.Columns("I:L").AutoFit
 ws.Columns("O:Q").AutoFit
-
+openingPrice = ws.Cells(2, 3).Value
 
     'Starting from 2, as header being first row and looping till the last used row
     For i = 2 To lastRow
@@ -72,14 +75,15 @@ ws.Columns("O:Q").AutoFit
             
                  ticker = ws.Cells(i, 1).Value
             
-                 openingPrice = ws.Cells(i, 3).Value
                  closingPrice = ws.Cells(i, 6).Value
             
                  'Calculate yearly change, percent change and total stock volume
                  yearlyChange = closingPrice - openingPrice
                  percentageChange = yearlyChange / openingPrice
                  stockVolume = stockVolume + ws.Cells(i, 7).Value
-            
+                 
+                 openingPrice = ws.Cells(i + 1, 3).Value
+                 
                  'Storing the output
                  ws.Cells(output, 9).Value = ticker
                  ws.Cells(output, 10).Value = yearlyChange
@@ -92,20 +96,20 @@ ws.Columns("O:Q").AutoFit
                  'Conditional formatting for yearly change
                  If yearlyChange >= 0 Then
                     ws.Cells(output, 10).Interior.Color = RGB(0, 255, 0) 'Green cell for positive values
-            
-                 Elseif yearlyChange < 0 Then
-                    ws.Cells(output, 10).Interior.Color = RGB(255, 0, 0) 'Red cell for negative values
+                 End If
                  
+                 If yearlyChange < 0 Then
+                    ws.Cells(output, 10).Interior.Color = RGB(255, 0, 0) 'Red cell for negative values
                  End If
        
                         
                  'Conditional formatting for percentage change
                  If percentageChange >= 0 Then
                     ws.Cells(output, 11).Interior.Color = RGB(0, 255, 0) 'Green cell for positive values
+                 End If
                  
-                 Elseif percentageChange < 0 Then
+                 If percentageChange < 0 Then
                     ws.Cells(output, 11).Interior.Color = RGB(255, 0, 0) 'Red cell for negative values
-                 
                  End If
                  
                
@@ -134,6 +138,12 @@ ws.Columns("O:Q").AutoFit
                
               output = output + 1
               
+            'Reset stockVolume for the new ticker
+               stockVolume = 0
+      Else
+
+           stockVolume = stockVolume + ws.Cells(i, 7).Value
+          
           End If
        
     
@@ -150,7 +160,8 @@ ws.Columns("O:Q").AutoFit
                ws.Cells(4, 17).Value = greatestStockVolumeValue
              
                
-    Next ws
+     Next ws
 
 End Sub
+
 
