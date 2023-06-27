@@ -63,6 +63,8 @@ ws.Cells(4, 15).Value = "Greatest Total Volume"
 ws.Columns("I:L").AutoFit
 ws.Columns("O:Q").AutoFit
 
+openingPrice = ws.Cells(2, 3).Value
+
 
     'Starting from 2, as header being first row and looping till the last used row
     For i = 2 To lastRow
@@ -70,16 +72,17 @@ ws.Columns("O:Q").AutoFit
     
          If ws.Cells(i, 1).Value <> ws.Cells(i + 1, 1).Value Then
             
-                 ticker = ws.Cells(i, 1).Value
-            
-                 openingPrice = ws.Cells(i, 3).Value
+                 ticker = ws.Cells(i, 1).Value  
+
                  closingPrice = ws.Cells(i, 6).Value
             
                  'Calculate yearly change, percent change and total stock volume
                  yearlyChange = closingPrice - openingPrice
                  percentageChange = yearlyChange / openingPrice
                  stockVolume = stockVolume + ws.Cells(i, 7).Value
-            
+
+                 openingPrice = ws.Cells(i + 1, 3).Value
+
                  'Storing the output
                  ws.Cells(output, 9).Value = ticker
                  ws.Cells(output, 10).Value = yearlyChange
@@ -133,7 +136,15 @@ ws.Columns("O:Q").AutoFit
                 End If
                
               output = output + 1
-              
+                
+               'Reset stockVolume for the new ticker
+               stockVolume = 0
+      Else
+
+           stockVolume = stockVolume + ws.Cells(i, 7).Value
+          
+          End If 
+
         End If
        
     
