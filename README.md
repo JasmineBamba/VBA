@@ -7,12 +7,11 @@ With the help of VBA script we calculated the following to see the trends:
 - Yearly change
 - Percentage Change
 - Total Stock Volume
+  
+![image](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/48f0d241-c573-4128-81a7-2263c3eef9e0)
+![image](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/8074dff5-d103-40f6-8618-a228240838f2)
+![image](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/527b01d6-720d-4cd8-9ffe-e31446778cac)
 
-![year_2018](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/12b128b3-dd07-4840-873b-59d9cee9576b)
-![year_2019](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/b8df1d4a-5b8a-4e07-8d32-33cb5bbfa48a)
-![year_2020](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/866b45b6-c56b-48c6-b809-02ff29990b85)
-
-![image](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/a1885d4a-6c63-4671-83a3-8fccf087b370)
 
 ## In addition, we were abe to gain insights on stock:
 - Greatest percentage increase
