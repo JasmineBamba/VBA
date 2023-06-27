@@ -8,9 +8,8 @@ With the help of VBA script we calculated the following to see the trends:
 - Percentage Change
 - Total Stock Volume
 
-![Screenshot 1](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/7dd246b1-af93-4c44-a418-a799d19d3a23)
-![image](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/2cea0b8a-1cf4-4b20-84e1-2828ba01af75)
-![image](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/dd8b3ab5-b020-429d-8d70-351e882b5b86)
+![year_2018](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/12b128b3-dd07-4840-873b-59d9cee9576b)
+
 
 ![image](https://github.com/JasmineBamba/VBA-Challenge/assets/135666038/6637fbc4-3d30-4234-a055-0b868dae1fdf)
 
